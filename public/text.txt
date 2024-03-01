@@ -1,0 +1,4 @@
+help refactor handleSubBasic
+
+after setSubscribed(isMonthly ? 'A' : 'B');
+handleNext should run after 5 seconds

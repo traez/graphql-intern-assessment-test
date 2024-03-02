@@ -13,7 +13,10 @@ export default function Home() {
   const { currentStep, stepsComponents } = useContext(StateContext)!;
 
   const client = new ApolloClient({
-    uri: "https://test2024.peddlesoftdev.xyz/graphql/",
+    // uri: `https://api.allorigins.win/get?url=${encodeURIComponent(
+    //   "http://test2024.peddlesoftdev.xyz/graphql/"
+    // )}`,
+    uri: "http://test2024.peddlesoftdev.xyz/graphql/",
     cache: new InMemoryCache(),
   });
 

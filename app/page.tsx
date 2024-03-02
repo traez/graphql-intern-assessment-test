@@ -1,14 +1,29 @@
 "use client";
 import { useState, useEffect, useContext } from "react";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from "@apollo/client";
+
 import { StateContext } from "./StateProvider";
 
 export default function Home() {
-  const {
-    currentStep,
-    stepsComponents,
-  } = useContext(StateContext)!;
+  const { currentStep, stepsComponents } = useContext(StateContext)!;
 
-  return <>{stepsComponents[currentStep]}</>;
+  const client = new ApolloClient({
+    uri: "http://test2024.peddlesoftdev.xyz/graphql",
+    cache: new InMemoryCache(),
+  });
+
+  return (
+    <>
+      <ApolloProvider client={client}>
+        {stepsComponents[currentStep]}
+      </ApolloProvider>
+    </>
+  );
 }
 
 /*

@@ -4,7 +4,7 @@ The StateProvider
 "use client";
 import { createContext, useState, useEffect, ReactNode } from "react";
 import Packages1 from "./components/Packages1";
-import Subscription2 from "./components/Subscription2";
+import InsurancePlans from "./components/InsurancePlans";
 import Payment3 from "./components/Payment3";
 
 export const StateContext = createContext<StateContextType | undefined>(
@@ -54,7 +54,7 @@ export default function StateProvider({ children }: StateProviderProps) {
 
   const stepsComponents: React.ReactNode[] = [
     <Packages1 key={1} />,
-    <Subscription2 key={2} />,
+    <InsurancePlans key={2} />,
     <Payment3 key={3} />,
   ];
 

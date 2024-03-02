@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect, useContext } from "react";
+import { useQuery, gql } from '@apollo/client';
 import { StateContext } from "../StateProvider";
 
-const Subscription2 = () => {
+const InsurancePlans = () => {
   const {
     handleBack,
     pricingData,
@@ -14,6 +15,20 @@ const Subscription2 = () => {
     handleSubStandard,
     handleSubPremium,
   } = useContext(StateContext)!;
+
+  const GET_INSURANCE_PLANS = gql`
+  query MyQuery {
+  insurancePlans {
+    name
+    description
+    price
+  }
+}
+  `;
+
+const { loading, error, data } = useQuery(GET_INSURANCE_PLANS);
+
+console.log({loading, error, data});
 
   const getSelectedPricingData = () => {
     return isMonthly ? pricingData.monthly : pricingData.annually;
@@ -189,4 +204,4 @@ const Subscription2 = () => {
   );
 };
 
-export default Subscription2;
+export default InsurancePlans;
